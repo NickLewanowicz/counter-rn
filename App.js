@@ -9,30 +9,46 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Alert
 } from 'react-native';
+import { Button } from 'react-native-elements';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
-type Props = {};
-export default class App extends Component<Props> {
+
+Props = {
+  
+};
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {number:10};
+    
+  }
+  _onPressButton() {
+    Alert.alert('You tapped the button!')
+  };
+  
   render() {
+    let number = this.state.number
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <View>
+          <Text style={styles.numberView}>
+            {number}
+          </Text>
+        </View>
+        <View style={styles.toggleButtons}>
+          <Button
+            large
+            onPress={this._onPressButton}
+            icon={{name: 'arrow-left', type: 'evilicon'}}
+            title='' />
+          <Button
+            large
+            icon={{name: 'arrow-right', type: 'evilicon', buttonStyle: styles.someButtonStyle }}
+            title='' />
+        </View>
       </View>
     );
   }
@@ -45,10 +61,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  numberView: {
+    fontSize: 100
+  },
+  toggleButtons: {
+    flexDirection: 'row',
   },
   instructions: {
     textAlign: 'center',
