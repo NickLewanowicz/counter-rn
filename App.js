@@ -24,9 +24,11 @@ export default class App extends Component {
     super(props);
     this.state = {number:10};
     
+    this._onPressButton = this._onPressButton.bind(this)
   }
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
+  _onPressButton(num) {
+    const {number} = this.state
+    this.setState({number: number + num})
   };
   
   render() {
@@ -41,11 +43,12 @@ export default class App extends Component {
         <View style={styles.toggleButtons}>
           <Button
             large
-            onPress={this._onPressButton}
+            onPress={() => this._onPressButton(-1)}
             icon={{name: 'arrow-left', type: 'evilicon'}}
             title='' />
           <Button
             large
+            onPress={() => this._onPressButton(1)}
             icon={{name: 'arrow-right', type: 'evilicon', buttonStyle: styles.someButtonStyle }}
             title='' />
         </View>
