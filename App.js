@@ -16,19 +16,19 @@ import { Button } from 'react-native-elements';
 
 
 
-Props = {
-  
-};
+Props = {};
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {number:10};
+    this.state = {number:0};
     
     this._onPressButton = this._onPressButton.bind(this)
   }
   _onPressButton(num) {
     const {number} = this.state
-    this.setState({number: number + num})
+    if(number + num > -1){
+      this.setState({number: number + num})
+    }
   };
   
   render() {
