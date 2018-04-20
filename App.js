@@ -35,21 +35,23 @@ export default class App extends Component {
     let number = this.state.number
     return (
       <View style={styles.container}>
-        <View>
+        <View style={styles.display}>
           <Text style={styles.numberView}>
             {number}
           </Text>
         </View>
         <View style={styles.toggleButtons}>
-          <Button
+          <Button style={styles.incButton}
             large
+            buttonStyle={styles.buttonStyle}
             onPress={() => this._onPressButton(-1)}
-            icon={{name: 'arrow-left', type: 'evilicon'}}
+            icon={{name: 'arrow-left', type: 'evilicon',  size: 150, iconStyle: styles.incButton }}
             title='' />
-          <Button
+          <Button style={styles.incButton}
             large
+            buttonStyle={styles.buttonStyle}
             onPress={() => this._onPressButton(1)}
-            icon={{name: 'arrow-right', type: 'evilicon', buttonStyle: styles.someButtonStyle }}
+            icon={{name: 'arrow-right', type: 'evilicon', size: 150,iconStyle: styles.incButton }}
             title='' />
         </View>
       </View>
@@ -59,16 +61,39 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    flex: 1
+  },
+  display: {
+    flex: 2,
+    justifyContent: 'center',
+    backgroundColor: 'skyblue',
+    width: '100%',
+    alignItems: 'center'
   },
   numberView: {
-    fontSize: 100
+    fontSize: 200,
+
   },
   toggleButtons: {
+    width: '100%',
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#3f75a2',
+    flex: 2
+  },
+  incButton: {
+    flex: 1,
+    width: 200,
+    backgroundColor: '#3f75a1',
+  },
+  buttonStyle: {
+    backgroundColor: '#3f75a2',
+    height: '100%',
+    width: '100%'
   },
   instructions: {
     textAlign: 'center',
