@@ -45,13 +45,13 @@ export default class App extends Component {
             large
             buttonStyle={styles.buttonStyle}
             onPress={() => this._onPressButton(-1)}
-            icon={{name: 'arrow-left', type: 'evilicon',  size: 150, iconStyle: styles.incButton }}
+            icon={{name: 'minus', type: 'evilicon',  size: 150, color: 'grey', iconStyle: styles.incButton }}
             title='' />
           <Button style={styles.incButton}
             large
             buttonStyle={styles.buttonStyle}
             onPress={() => this._onPressButton(1)}
-            icon={{name: 'arrow-right', type: 'evilicon', size: 150,iconStyle: styles.incButton }}
+            icon={{name: 'plus', type: 'evilicon', size: 150, color: 'grey', iconStyle: styles.incButton }}
             title='' />
         </View>
       </View>
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   display: {
     flex: 2,
     justifyContent: 'center',
-    backgroundColor: 'skyblue',
+    backgroundColor: 'white',
     width: '100%',
     alignItems: 'center'
   },
@@ -82,16 +82,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3f75a2',
-    flex: 2
+    backgroundColor: 'black',
+    flex: 1
   },
   incButton: {
     flex: 1,
     width: 200,
-    backgroundColor: '#3f75a1',
+    backgroundColor: 'black',
   },
   buttonStyle: {
-    backgroundColor: '#3f75a2',
+    backgroundColor: 'black',
     height: '100%',
     width: '100%'
   },
